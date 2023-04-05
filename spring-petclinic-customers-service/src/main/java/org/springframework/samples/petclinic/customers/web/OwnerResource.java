@@ -57,7 +57,7 @@ class OwnerResource {
      */
     @GetMapping(value = "/{ownerId}")
     public Owner findOwner(@PathVariable("ownerId") int ownerId) {
-        return ownerRepository.findOne(ownerId);
+        return ownerRepository.findById(ownerId).get();
     }
 
     /**
@@ -74,7 +74,7 @@ class OwnerResource {
     @PutMapping(value = "/{ownerId}")
     @Monitored
     public Owner updateOwner(@PathVariable("ownerId") int ownerId, @Valid @RequestBody Owner ownerRequest) {
-        final Owner ownerModel = ownerRepository.findOne(ownerId);
+        final Owner ownerModel = ownerRepository.findById(ownerId).get();
         // This is done by hand for simplicity purpose. In a real life use-case we should consider using MapStruct.
         ownerModel.setFirstName(ownerRequest.getFirstName());
         ownerModel.setLastName(ownerRequest.getLastName());
