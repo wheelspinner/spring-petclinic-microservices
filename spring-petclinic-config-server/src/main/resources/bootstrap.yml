@@ -5,11 +5,23 @@ spring:
       server:
         git:
           uri: https://github.com/spring-petclinic/spring-petclinic-microservices-config
----
-spring:
-  profiles: local
-  cloud:
-    config:
-      server:
-        git:
-          uri: file:///${GIT_REPO}
+#          skipSslValidation: true
+          cloneOnStart: true
+          default-label: master
+      enabled: false
+logging:
+  level:
+    ROOT: INFO
+management:
+  info:
+    git:
+      mode: full
+
+#---
+#spring:
+#  profiles: local
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: file:///${GIT_REPO}

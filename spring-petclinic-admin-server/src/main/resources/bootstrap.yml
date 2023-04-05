@@ -2,6 +2,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+      label: 1e9c6759a423e3984c6d73d002c0fd2ebf5abeb5
   application:
     name: admin-server
 ---
@@ -10,3 +11,8 @@ spring:
   cloud:
     config:
       uri: http://config-server:8888
+eureka:
+  instance:
+    # enable to register multiple app instances with a random server port
+    instance-id: ${spring.application.name}:${random.uuid}
+

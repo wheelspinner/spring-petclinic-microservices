@@ -1,6 +1,7 @@
-FROM java:8
+FROM eclipse-temurin:8-jdk-alpine
 VOLUME /tmp
-ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh wait-for-it.sh
+RUN apk add --update bash
+ADD ./wait-for-it.sh wait-for-it.sh
 RUN bash -c 'chmod +x wait-for-it.sh'
 ARG ARTIFACT_NAME
 ADD ${ARTIFACT_NAME}.jar /app.jar

@@ -5,6 +5,8 @@ services:
     container_name: config-server
     ports:
      - 8888:8888
+    entrypoint: ["java","-Djdk.tls.client.protocols=TLSv1.1,TLSv1.2","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+
 
   discovery-server:
     image: mszarlinski/spring-petclinic-discovery-server
