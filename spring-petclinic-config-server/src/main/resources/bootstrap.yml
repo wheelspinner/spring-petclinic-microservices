@@ -4,10 +4,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/spring-petclinic/spring-petclinic-microservices-config
-#          skipSslValidation: true
+          uri: https://github.com/wheelspinner/spring-petclinic-microservices-config
           cloneOnStart: true
-          default-label: master
+          default-label: poc
       enabled: false
 logging:
   level:

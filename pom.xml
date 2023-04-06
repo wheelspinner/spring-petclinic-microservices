@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>spring-petclinic-admin-server</module>
+<!--		<module>spring-petclinic-admin-server</module>-->
 		<module>spring-petclinic-customers-service</module>
 		<module>spring-petclinic-vets-service</module>
 		<module>spring-petclinic-visits-service</module>
@@ -23,7 +23,7 @@
         <module>spring-petclinic-discovery-server</module>
         <module>spring-petclinic-api-gateway</module>
         <module>spring-petclinic-monitoring</module>
-        <module>spring-petclinic-tracing-server</module>
+<!--        <module>spring-petclinic-tracing-server</module>-->
     </modules>
 
     <properties>
@@ -35,7 +35,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-		<docker.image.prefix>mszarlinski</docker.image.prefix>
+		<docker.image.prefix>bryannoland</docker.image.prefix>
         <docker.image.exposed.port>9090</docker.image.exposed.port>
         <docker.image.dockerfile.dir>${basedir}</docker.image.dockerfile.dir>
 		<docker.plugin.version>0.4.13</docker.plugin.version>

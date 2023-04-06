@@ -2,6 +2,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+      label: poc
   application:
     name: discovery-server
 ---
@@ -10,35 +11,3 @@ spring:
   cloud:
     config:
       uri: http://config-server:8888
-      label: 15290addbd85bc75d677bcde409919c045fccfb6
-server:
-  port: 8761
-eureka:
-  instance:
-    hostname: localhost
-    non-secure-port: ${PORT:8761}
-  server:
-    enable-self-preservation: false
-    peer-node-read-timeout-ms: 6000
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    healthcheck:
-      enabled: true
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
-  devtools:
-    livereload:
-      enabled: false
-
-endpoints:
-  sensitive: false
-
-security:
-  basic:
-    enabled: false
-
-management:
-  security:
-    enabled: false
