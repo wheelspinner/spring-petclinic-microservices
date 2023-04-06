@@ -1,4 +1,4 @@
-FROM eclipse-temurin:8-jdk-alpine
+FROM eclipse-temurin:11-jdk-alpine
 VOLUME /tmp
 RUN apk add --update bash
 ADD ./wait-for-it.sh wait-for-it.sh
