@@ -23,5 +23,5 @@ import lombok.Data;
 @Data
 public class PetType {
 
-    private final String name;
+    private String name;
 }

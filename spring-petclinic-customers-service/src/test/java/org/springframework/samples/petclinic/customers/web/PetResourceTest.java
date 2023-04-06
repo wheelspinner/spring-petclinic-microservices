@@ -21,6 +21,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Optional;
+
 /**
  * @author Maciej Szarlinski
  */
@@ -43,12 +45,13 @@ public class PetResourceTest {
 
         Pet pet = setupPet();
 
-        given(petRepository.findOne(2)).willReturn(pet);
+        given(petRepository.findById(2)).willReturn(Optional.of(pet));
 
 
-        mvc.perform(get("/owners/2/pets/2.json").accept(MediaType.APPLICATION_JSON))
+       // mvc.perform(get("/owners/2/pets/2.json").accept(MediaType.APPLICATION_JSON))
+        mvc.perform(get("/owners/2/pets/2").accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$.id").value(2))
             .andExpect(jsonPath("$.name").value("Basil"))
             .andExpect(jsonPath("$.type.id").value(6));
